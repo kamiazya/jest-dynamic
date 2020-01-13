@@ -52,6 +52,10 @@ onlyOn('win32').describe('Run on Windows', () => {
 });
 ```
 
+## License
+
+This software is released under the MIT License, see LICENSE.
+
 ## Author
 
 [kamiazya(Yuki Yamazaki)](https://github.com/kamiazya)
