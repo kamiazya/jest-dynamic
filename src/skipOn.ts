@@ -1,4 +1,8 @@
 import { IJest } from './interface';
+
+/**
+ * Skip the test on the specified platform.
+ */
 export function skipOn(platform: NodeJS.Platform): IJest;
 export function skipOn(...platforms: NodeJS.Platform[]): IJest;
 export function skipOn(...platforms: NodeJS.Platform[]): IJest {
