@@ -1,7 +1,13 @@
 {
   "name": "jest-platform",
   "version": "0.0.0",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "author": "kamiazya <yuki@kamiazya.tech>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.4"
+  }
 }
