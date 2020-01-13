@@ -11,7 +11,7 @@ export function skip(...platforms: NodeJS.Platform[]): IJest {
   return {
     describe: skipOnPlatform ? describe.skip : describe,
     test: skipOnPlatform ? test.skip : test,
-    it: skipOnPlatform ? it.skip : it
+    it: skipOnPlatform ? it.skip : it,
   };
 }
 
@@ -22,7 +22,6 @@ export function only(...platforms: NodeJS.Platform[]): IJest {
   return {
     describe: onlyOnPlatform ? describe.only : describe,
     test: onlyOnPlatform ? test.only : test,
-    it: onlyOnPlatform ? it.only : it
+    it: onlyOnPlatform ? it.only : it,
   };
 }
-
