@@ -1,2 +1,2 @@
-export * from './skip';
-export * from './only';
+export * from './skipOn';
+export * from './onlyOn';
