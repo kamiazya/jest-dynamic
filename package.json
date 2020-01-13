@@ -1,0 +1,7 @@
+{
+  "name": "jest-platform",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "license": "MIT"
+}
