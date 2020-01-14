@@ -1,14 +1,12 @@
-import { IJest } from './interface';
+import { onlyIf } from './onlyIf';
+import { ITestClosures } from './types';
+
 /**
  * Run one test of the block targeted for the specified platform.
  */
-export function onlyOn(platform: NodeJS.Platform): IJest;
-export function onlyOn(...platforms: NodeJS.Platform[]): IJest;
-export function onlyOn(...platforms: NodeJS.Platform[]): IJest {
+export function onlyOn(platform: NodeJS.Platform): ITestClosures;
+export function onlyOn(...platforms: NodeJS.Platform[]): ITestClosures;
+export function onlyOn(...platforms: NodeJS.Platform[]): ITestClosures {
   const onlyOnPlatform = platforms.includes(process.platform);
-  return {
-    describe: onlyOnPlatform ? describe.only : describe,
-    test: onlyOnPlatform ? test.only : test,
-    it: onlyOnPlatform ? it.only : it,
-  };
+  return onlyIf(onlyOnPlatform);
 }

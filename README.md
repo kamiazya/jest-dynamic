@@ -10,48 +10,99 @@ When writing a platform-dependent test like [this issue](https://github.com/face
 
 ## API
 
+### Importing
+
+```typescript
+import { onlyIf, onlyOn, skipIf, skipOn } from '@kamiazya/jest-dynamic';
+```
+
+### Skip
+
 ### `skipOn(...platforms: NodeJS.Platform)`
 
 Using `skipOn` will skip the test on the specified platform.
 
 ```typescript
-import { skipOn } from '@kamiazya/jest-dynamic';
-
-skipOn('darwin').describe('Tests not run on Mac', () => {
-  it('is sample test', () => {
-    expect(true).toBe(true);
+skipOn('darwin')
+  .describe('Tests not run on Mac', () => {
+    it('is sample test', () => {
+      expect(true).toBe(true);
+    });
   });
-});
-
-describe('Tests', () => {
-  skipOn('win32').it('should be skipped on Windows', () => {
-    expect(false).toBe(false);
-  });
-
-  skipOn('linux').test('Skipped on Linux', () => {
-    expect(1).toBe(1);
-  });
-});
 ```
+
+### `skipIf(condition: boolean | (() => boolean))`
+
+Using `skipIf` will skip the test on condition.
+
+```typescript
+skipIf(process.env.NODE_ENV === 'CI')
+  .describe('This run on local test', () => {
+      expect(true).toBe(true);
+  });
+```
+
+### Only
 
 ### `onlyOn(...platforms: NodeJS.Platform)`
 
 Use `onlyOn` to run one test of the block targeted for the specified platform.
 
 ```typescript
-import { onlyOn } from '@kamiazya/jest-dynamic';
-
-onlyOn('darwin', 'linux').describe('Run on Mac or Linux', () => {
-  test('sample', () => {
-    expect(true).toBe(true);
+onlyOn('darwin', 'linux')
+  .describe('Run on Mac or Linux', () => {
+    test('sample', () => {
+      expect(true).toBe(true);
+    });
   });
-});
 
-onlyOn('win32').describe('Run on Windows', () => {
-  test('sample', () => {
-    expect(false).toBe(false);
+onlyOn('win32')
+  .describe('Run on Windows', () => {
+    test('sample', () => {
+      expect(false).toBe(false);
+    });
   });
+```
+
+### `onlyIf(condition: boolean | (() => boolean))`
+
+Use `onlyIf` to run one test of the block targeted on condition.
+
+```typescript
+describe('Tests', () => {
+  onlyIf(process.platform === 'win32')
+    .it('should be run on Windows', () => {
+      expect(false).toBe(false);
+    });
+
+  onlyIf(() => process.platform === 'linux')
+    .test('Run on Linux', () => {
+      expect(1).toBe(1);
+    });
 });
+```
+
+### Advanced Usage
+
+Conditions can also be set on variables to increase reusability.
+
+```typescript
+const onlyOnLinuxAndMac = onlyOn('linux', 'darwin');
+const skipOnLinux = skipOn('linux');
+const skipOnMac = skipOn('darwin');
+
+onlyOnLinuxAndMac
+  .describe('Tests', () => {
+    skipOnLinux
+      .test('sample', () => {
+        expect(false).toBe(false);
+      });
+
+    skipOnMac
+      .test('sample', () => {
+        expect(false).toBe(false);
+      });
+  });
 ```
 
 ## License
