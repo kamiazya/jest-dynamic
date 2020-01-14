@@ -8,6 +8,7 @@
   "tslint.exclude": ["**/dist/**", "**/node_modules/**"],
   "markdownlint.config": {
     "default": true,
+    "MD036": false,
     "MD041": false
   },
   "typescript.tsdk": "node_modules/typescript/lib"

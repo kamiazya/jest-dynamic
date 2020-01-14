@@ -1,8 +1,8 @@
-[![GitHub Action](https://github.com/kamiazya/ts-graphviz/workflows/NodeCI/badge.svg)](https://github.com/kamiazya/ts-graphviz/actions?workflow=NodeCI) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![GitHub Action](https://github.com/kamiazya/ts-graphviz/workflows/NodeCI/badge.svg)](https://github.com/kamiazya/ts-graphviz/actions?workflow=NodeCI) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![Test Coverage](https://api.codeclimate.com/v1/badges/0ec7daa6470b162e8775/test_coverage)](https://codeclimate.com/github/kamiazya/jest-dynamic/test_coverage)
 
 # @kamiazya/jest-dynamic
 
-An extension to dynamically switch the Jest test suite according to the environment (such as platform).
+An extension to dynamically switch the [Jest](https://jestjs.io/) test suite according to the environment (such as platform).
 
 ## Objectives
 
@@ -22,6 +22,8 @@ import { onlyIf, onlyOn, skipIf, skipOn } from '@kamiazya/jest-dynamic';
 
 Using `skipOn` will skip the test on the specified platform.
 
+**Example**
+
 ```typescript
 skipOn('darwin')
   .describe('Tests not run on Mac', () => {
@@ -35,6 +37,8 @@ skipOn('darwin')
 
 Using `skipIf` will skip the test on condition.
 
+**Example**
+
 ```typescript
 skipIf(process.env.NODE_ENV === 'CI')
   .describe('This run on local test', () => {
@@ -45,6 +49,8 @@ skipIf(process.env.NODE_ENV === 'CI')
 ### Only
 
 ### `onlyOn(...platforms: NodeJS.Platform)`
+
+**Example**
 
 Use `onlyOn` to run one test of the block targeted for the specified platform.
 
@@ -68,6 +74,8 @@ onlyOn('win32')
 
 Use `onlyIf` to run one test of the block targeted on condition.
 
+**Example**
+
 ```typescript
 describe('Tests', () => {
   onlyIf(process.platform === 'win32')
@@ -83,6 +91,8 @@ describe('Tests', () => {
 ```
 
 ### Advanced Usage
+
+**Example**
 
 Conditions can also be set on variables to increase reusability.
 
