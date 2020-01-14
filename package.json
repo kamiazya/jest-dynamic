@@ -8,6 +8,7 @@
     "jest-library"
   ],
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "author": "kamiazya <yuki@kamiazya.tech>",
   "publishConfig": {
@@ -26,7 +27,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "rollup -c",
     "test": "jest",
     "lint": "tslint --project ./tsconfig.json"
   },
@@ -38,6 +39,9 @@
     "@types/node": "^13.1.6",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
+    "rollup": "^1.29.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
     "ts-jest": "^24.3.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",

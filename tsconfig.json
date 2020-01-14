@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es3",
-    "module": "commonjs",
+    "target": "ES3",
+    "module": "ESNext",
     "strict": true,
     "allowJs": false,
     "alwaysStrict": true,
