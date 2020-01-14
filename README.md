@@ -8,6 +8,19 @@ An extension to dynamically switch the [Jest](https://jestjs.io/) test suite acc
 
 When writing a platform-dependent test like [this issue](https://github.com/facebook/jest/issues/3652), it provides an option to flexibly change the test configuration.
 
+## Installation
+
+This jest plugin can then be installed using [npm](https://www.npmjs.com/):
+
+[![NPM](https://nodei.co/npm/@kamiazya/jest-dynamic.png)](https://nodei.co/npm/@kamiazya/jest-dynamic/)
+
+```bash
+# yarn
+yarn add -D @kamiazya/jest-dynamic
+# or npm
+npm install --save-dev @kamiazya/jest-dynamic
+```
+
 ## API
 
 ### Importing
