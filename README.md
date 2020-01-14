@@ -50,9 +50,9 @@ skipIf(process.env.NODE_ENV === 'CI')
 
 ### `onlyOn(...platforms: NodeJS.Platform)`
 
-**Example**
-
 Use `onlyOn` to run one test of the block targeted for the specified platform.
+
+**Example**
 
 ```typescript
 onlyOn('darwin', 'linux')
