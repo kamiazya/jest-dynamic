@@ -1,6 +1,6 @@
 {
   "name": "@kamiazya/jest-dynamic",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "An extension to dynamically switch the Jest test suite according to the environment (such as platform).",
   "keywords": [
     "jest",
