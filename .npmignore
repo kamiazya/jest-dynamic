@@ -1,0 +1,13 @@
+.editorconfig
+.github
+.gitignore
+.prettierignore
+.prettierrc.json
+.vscode
+coverage
+jest.config.js
+LICENSE
+rollup.config.js
+src
+tsconfig.json
+tslint.json
