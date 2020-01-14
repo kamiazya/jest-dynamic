@@ -1,4 +1,4 @@
-import { ITestClosures } from './types';
+import { Condition, ITestClosures } from './types';
 
 function createTestClosures(mode?: 'skip' | 'only'): ITestClosures {
   switch (mode) {
@@ -19,3 +19,7 @@ export const jests: { only: ITestClosures; skip: ITestClosures; base: ITestClosu
   skip: createTestClosures('skip'),
   only: createTestClosures('only'),
 };
+
+export function judge(condition: Condition): boolean {
+  return typeof condition === 'boolean' ? condition : condition();
+}
